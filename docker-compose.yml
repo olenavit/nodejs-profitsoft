@@ -1,0 +1,8 @@
+version: '3.5'
+services:
+  db:
+    image: mongo:5.0.14
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./docker/data/mongo/db:/data/db

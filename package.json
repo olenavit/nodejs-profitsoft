@@ -1,0 +1,46 @@
+{
+  "main": "index.js",
+  "nyc": {
+    "check-coverage": true,
+    "lines": 80
+  },
+  "_moduleAliases": {
+    "src": "dist"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "chai-http": "4.3.0",
+    "cors": "^2.8.5",
+    "express": "4.18.2",
+    "http-status": "1.6.2",
+    "log4js": "6.9.1",
+    "module-alias": "2.2.3",
+    "mongoose": "7.0.4"
+  },
+  "devDependencies": {
+    "@types/chai": "4.3.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "4.17.17",
+    "@types/mocha": "10.0.1",
+    "@types/node": "16.11.6",
+    "@types/sinon": "10.0.14",
+    "@typescript-eslint/eslint-plugin": "5.59.0",
+    "@typescript-eslint/parser": "5.59.0",
+    "chai": "4.3.7",
+    "eslint": "8.39.0",
+    "eslint-config-prettier": "8.8.0",
+    "mocha": "10.2.0",
+    "mongodb-memory-server": "8.12.2",
+    "nodemon": "2.0.22",
+    "nyc": "15.1.0",
+    "sinon": "15.0.4",
+    "ts-node": "10.9.1",
+    "tsconfig-paths": "4.2.0"
+  },
+  "scripts": {
+    "start": "npm run build && node ./dist/index.js",
+    "build": "npx tsc",
+    "devel": "nodemon --exec ts-node -r tsconfig-paths/register ./src/index.ts",
+    "test": "mocha --timeout 30000 --exit -r ts-node/register -r tsconfig-paths/register src/test/**/*.test.ts"
+  }
+}
