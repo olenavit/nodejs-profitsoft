@@ -27,6 +27,9 @@
     "@typescript-eslint/eslint-plugin": "5.59.0",
     "@typescript-eslint/parser": "5.59.0",
     "chai": "4.3.7",
+    "class-sanitizer": "^1.0.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
     "eslint": "8.39.0",
     "eslint-config-prettier": "8.8.0",
     "mocha": "10.2.0",
@@ -38,9 +41,9 @@
     "tsconfig-paths": "4.2.0"
   },
   "scripts": {
-    "start": "npm run build && node ./dist/index.js",
-    "build": "npx tsc",
     "devel": "nodemon --exec ts-node -r tsconfig-paths/register ./src/index.ts",
-    "test": "mocha --timeout 30000 --exit -r ts-node/register -r tsconfig-paths/register src/test/**/*.test.ts"
+    "test": "mocha --timeout 30000 --exit -r ts-node/register -r tsconfig-paths/register src/test/**/*.test.ts",
+    "coverage": "nyc npm run test",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   }
 }

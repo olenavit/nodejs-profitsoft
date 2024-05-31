@@ -21,18 +21,18 @@ const config = {
     },
   },
 
-  app:{
-    address:"0.0.0.0",
-    port:8888,
+  app: {
+    address: "0.0.0.0",
+    port: 8888,
   },
 
-  mongo:{
-    address:"mongodb://127.0.0.1:27017"
+  mongo: {
+    address: "mongodb://127.0.0.1:27017",
   },
 
-  playerResource:{
-    url:"http://localhost:8080/api/player"
-  }
+  playerResource: {
+    url: "http://localhost:8080/api/player",
+  },
 };
 
 export default config;

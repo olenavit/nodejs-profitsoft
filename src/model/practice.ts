@@ -21,5 +21,5 @@ const practiceSchema = new Schema({
   },
 });
 
-const Practice = mongoose.model<IPractice>('Practice',practiceSchema);
+const Practice = mongoose.model<IPractice>('Practice', practiceSchema);
 export default Practice;

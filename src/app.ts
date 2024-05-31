@@ -6,7 +6,6 @@ import mongoose, {ConnectOptions} from 'mongoose';
 import cors from 'cors';
 import constants from "src/commons/constants";
 
-
 export default async () => {
   const app = express();
 
@@ -15,22 +14,9 @@ export default async () => {
   // to disable caching of requests returning 304 instead of 200
   app.disable('etag');
 
+  app.use(cors());
+
   app.use(express.json({limit: '1mb'}));
-
-  app.use((req, _, next) => {
-    const dateReviver = (_: string, value: unknown) => {
-      if (value && typeof value === 'string') {
-        const dateRegex = /^\d{2}-\d{2}-\d{4}$/;
-        if (dateRegex.test(value)) {
-          return new Date(value);
-        }
-      }
-      return value;
-    };
-
-    req.body = JSON.parse(JSON.stringify(req.body), dateReviver);
-    next();
-  });
 
   app.use(constants.PATH.BLANK, routers);
 
@@ -47,6 +33,5 @@ export default async () => {
     socketTimeoutMS: 30000,
   } as ConnectOptions);
 
-  app.use(cors());
   return app;
 };
